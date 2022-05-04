@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>All exams</title>
+</head>
+<body>
+	<a th:href="@{/exam/new}">Add new exam</a>
+
+	<br><hr><br>
+	
+	<table>
+		<tbody>
+			<tr th:each="exam : ${exams}">
+				<td th:text="${exam.id}" />
+				<td th:text="${exam.name}" />
+				<td>
+					<a th:href="@{/exam/update/{id}(id=${exam.getId()})}">Update exam</a>
+					<a th:href="@{/exam/delete/{id}(id=${exam.getId()})}">Delete exam</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
